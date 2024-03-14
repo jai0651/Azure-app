@@ -25,7 +25,8 @@ app.use(bodyParser.json());
 app.use(express.static(publicDirectoryPath)); // Use the absolute path
 
 mongoose.connect(
-  process.env.MONGODB_URI
+  // process.env.MONGODB_URI
+  "mongodb+srv://jai0651:shankarj952@cluster0.hxqd999.mongodb.net/azure_app"
 );
 
 // Define the Product schema
