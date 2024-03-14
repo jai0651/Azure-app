@@ -4,9 +4,13 @@ const bodyParser = require("body-parser");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 require('dotenv').config();
+const path = require("path"); // Import the path module
+
 
 
 const app = express();
+const publicDirectoryPath = path.join(__dirname, "public");
+
 
 // Enable CORS
 app.use((req, res, next) => {
@@ -18,7 +22,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static(publicDirectoryPath)); // Use the absolute path
 
 mongoose.connect(
   process.env.MONGODB_URI
