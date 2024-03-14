@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 //const date = require(__dirname+"/date.js");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+require('dotenv').config();
+
 
 const app = express();
 
@@ -19,7 +21,7 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 mongoose.connect(
-  "mongodb+srv://jai0651:shankarj952@cluster0.hxqd999.mongodb.net/azure_app"
+  process.env.MONGODB_URI
 );
 
 // Define the Product schema
@@ -58,6 +60,11 @@ app.delete('/products/:id', async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   });
+
+app.get("/", (req, res) => {
+    res.status(200).send("OK");
+});
+
 
 const server = app.listen(process.env.PORT || 8080, () => {
   const port = server.address().port;
