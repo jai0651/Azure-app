@@ -2,9 +2,11 @@
   "name": "azure-app-final",
   "version": "1.0.0",
   "description": "azure app",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "start": "node app.js"
+
   },
   "author": "jai",
   "license": "ISC",
